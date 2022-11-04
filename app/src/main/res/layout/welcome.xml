@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#eee"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent">
+
+        <ImageView
+            android:id="@+id/photoImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:scaleType="fitXY"
+            android:src="@drawable/welcome" />
+
+        <Button
+            android:id="@+id/main_login_btn"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_alignStart="@id/photoImageView"
+            android:layout_alignBottom="@id/photoImageView"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/btn_nor_down"
+            android:onClick="welcome_login"
+            android:text="登录"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            tools:ignore="UsingOnClickInXml" />
+
+        <Button
+            android:id="@+id/main_register_btn"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_alignEnd="@id/photoImageView"
+            android:layout_alignBottom="@id/photoImageView"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/btn_nor_down"
+            android:onClick="welcome_register"
+            android:text="注册"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            tools:ignore="UsingOnClickInXml" />
+
+    </RelativeLayout>
+
+</LinearLayout>
