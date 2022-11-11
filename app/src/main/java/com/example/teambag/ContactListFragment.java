@@ -42,6 +42,7 @@ import java.util.Map;
 public class ContactListFragment extends Fragment {
     String[] imgUrl;
     String[] name;
+    String[] friend;
     private String number; //微信号，通过微信号去查找通讯录
     /* 声明组件*/
     private ListView listView;
@@ -108,7 +109,7 @@ public class ContactListFragment extends Fragment {
         list = new ArrayList<>();
         for (int i = 0; i < imgUrl.length; i++) {
             //System.out.println("i=  "+i);
-            list.add(new User(name[i]));
+            list.add(new User(name[i],friend[i]));
         }
         Collections.sort(list); // 对list进行排序，需要让User实现Comparable接口重写compareTo方法
         //四个标签排序后再进行添加，好进行条件判断分离出来
@@ -138,6 +139,7 @@ public class ContactListFragment extends Fragment {
                 }
                 intent.putExtra("img",Main.img);
                 intent.putExtra("his_name",his_name);
+                intent.putExtra("his_number",list.get(i).getNumber());
                 //页面跳转到登录界面
                 startActivity(intent);
             }
@@ -194,16 +196,20 @@ public class ContactListFragment extends Fragment {
                 JSONObject rjson = new JSONObject(buffer.toString());
                 String str1=new String();
                 String str2=new String();
+                String str3=new String();
                 for(int i=0;i<rjson.getJSONArray("json").length();i++){
                     str1 += rjson.getJSONArray("json").getJSONObject(i).get("img").toString();
                     str1 += "\r\n";
                     str2 += rjson.getJSONArray("json").getJSONObject(i).get("name").toString();
                     str2 += "\r\n";
+                    str3 += rjson.getJSONArray("json").getJSONObject(i).get("friend").toString();
+                    str3 += "\r\n";
                 }
                 imgUrl = str1.split("\r\n");
                 name = str2.split("\r\n");
+                friend = str3.split("\r\n");
                 boolean result = rjson.getBoolean("j1");// 从rjson对象中得到key值为"json"的数据，这里服务端返回的是一个boolean类型的数据
-                System.out.println("json:===" + result);
+                System.out.println("jsonLength:===" + rjson.getJSONArray("json").length());
                 //如果服务器端返回的是true，则说明注册成功，否则注册失败
                 if (result) {// 判断结果是否正确
                     //在Android中http请求，必须放到线程中去作请求，但是在线程中不可以直接修改UI，只能通过hander机制来完成对UI的操作
