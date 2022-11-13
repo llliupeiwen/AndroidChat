@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/showFriend"
+        android:icon="@mipmap/ic_launcher"
+        android:title="查看好友"/>
+
+    <item
+        android:id="@+id/deleteFriend"
+        android:icon="@mipmap/ic_launcher"
+        android:title="删除好友"/>
+
+    <item
+        android:id="@+id/chatFriend"
+        android:icon="@mipmap/ic_launcher"
+        android:title="聊天"/>
+
+    <item
+        android:id="@+id/blockFriend"
+        android:icon="@mipmap/ic_launcher"
+        android:title="拉黑"/>
+
+</menu>
